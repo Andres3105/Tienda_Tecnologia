@@ -47,6 +47,6 @@ Cuenta con interfaz moderna estilo glassmorphism y manejo dinámico de stock.
 ```
 
 👨‍💻 Autor
-Andrés Bohórquez
-Estudiante de Ingeniería de Software
-Bogotá, Colombia
+- Andrés Bohórquez
+- Estudiante de Ingeniería de Software
+- Bogotá, Colombia
