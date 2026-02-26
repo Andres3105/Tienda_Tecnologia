@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="/nuevo" class="btn btn-success mb-3">Agregar Producto</a>
+
+<div class="row">
+{% for p in productos %}
+  <div class="col-md-4">
+    <div class="card bg-secondary mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ p.nombre }}</h5>
+        <p>{{ p.descripcion }}</p>
+        <p class="precio">$ {{ "{:,.0f}".format(p.precio).replace(",", ".") }}</p>
+        <p>Stock: {{ p.stock }}</p>
+        {% if p.stock == 0 %}
+            <span class="stock-agotado">❌ Agotado</span>
+        {% elif p.stock < 5 %}
+            <span class="stock-bajo">⚠ Stock Bajo</span>
+        {% else %}
+            <span class="stock-normal">Disponible</span>
+        {% endif %}
+        <div class="d-flex justify-content-between mt-3">
+            <a href="/editar/{{ p.id }}" class="btn btn-warning btn-sm">✏ Editar</a>
+            <a href="/eliminar/{{ p.id }}" 
+            class="btn btn-danger btn-sm"
+            onclick="return confirm('¿Seguro que deseas eliminar este producto?');">
+            🗑 Eliminar
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+{% endblock %}
